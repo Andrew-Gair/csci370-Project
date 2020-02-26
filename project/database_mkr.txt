@@ -1,0 +1,98 @@
+################################
+## CREATE COMMANDS FOR TABLES ##
+################################
+
+create table trains(trainID CHAR(6), currentLocation VARCHAR(20), PRIMARY KEY(trainID));
+
+create table trainStaff(empNum CHAR(6), Lname VARCHAR(15), Fname VARCHAR(15), position VARCHAR(10), trainID CHAR(6), PRIMARY KEY(empNum));
+
+create table stationStaff(empNum CHAR(6), Lname VARCHAR(15), Fname VARCHAR(15), position VARCHAR(10), stationID CHAR(6), stationName VARCHAR(20), PRIMARY KEY(empNum));
+
+create table stations(stationID CHAR(6), stationName VARCHAR(20), PRIMARY KEY(stationID));
+
+create table stopsAt(stationID CHAR(6), trainID CHAR(6), arrivalTime char(5), departureTime char(5), PRIMARY KEY(stationID, trainID));
+
+create table cargo(cargoID CHAR(6), type VARCHAR(15), destination VARCHAR(20), trainID CHAR(6), PRIMARY KEY(cargoID));
+
+create table routesThrough(stationID CHAR(6), cargoID CHAR(6), arrivalTime CHAR(5), departureTime CHAR(5), PRIMARY KEY(stationID, cargoID));
+
+
+#############################
+## DATA INSERTS FOR TABLES ##
+#############################
+
+## TRAIN STAFF ##
+INSERT INTO trainStaff(empNum, Lname, Fname, position, trainID) VALUES ('101537', 'Johnson', 'Fred', 'engineer', '502667');
+
+INSERT INTO trainStaff(empNum, Lname, Fname, position, trainID) VALUES ('101923', 'Andrews', 'Andy', 'attendant', '502667');
+
+INSERT INTO trainStaff(empNum, Lname, Fname, position, trainID) VALUES ('101886', 'Bob', 'Bella', 'engineer', '502703');
+
+INSERT INTO trainStaff(empNum, Lname, Fname, position, trainID) VALUES ('101124', 'Jacobs', 'Jack', 'attendant', '502703');
+
+
+## STATION STAFF ##
+INSERT INTO stationStaff(empNum, Lname, Fname, position, stationID, stationName) VALUES ('102231', 'Holden', 'James', 'clerk', '200667', 'Medina Station');
+
+INSERT INTO stationStaff(empNum, Lname, Fname, position, stationID, stationName) VALUES ('102367', 'Smith', 'John', 'clerk', '200723', 'DS9 Station');
+
+INSERT INTO stationStaff(empNum, Lname, Fname, position, stationID, stationName) VALUES ('102514', 'Doe', 'Jane', 'clerk', '200327', 'Phalanx Station');
+
+INSERT INTO stationStaff(empNum, Lname, Fname, position, stationID, stationName) VALUES ('102314', 'Sue', 'Sally', 'manager', '200765', 'VDNkh Station');
+
+## TRAINS ##
+INSERT INTO trains(trainID, currentLocation) VALUES ('502667', 'Medina Station');
+
+INSERT INTO trains(trainID, currentLocation) VALUES ('502703', '0:11 VDNkh Station');
+
+
+## STATIONS ##
+INSERT INTO stations(stationID, stationName) VALUES ('200667', 'Medina Station');
+
+INSERT INTO stations(stationID, stationName) VALUES ('200723', 'DS9 Station');
+
+INSERT INTO stations(stationID, stationName) VALUES ('200327', 'Phalanx Station');
+
+INSERT INTO stations(stationID, stationName) VALUES ('200765', 'VDNkh Station');
+
+
+## STOPS-AT ##
+INSERT INTO stopsAt(stationID, trainID, arrivalTime, departureTime) VALUES ('200765', '502667', '00:00', '08:30');
+
+INSERT INTO stopsAt(stationID, trainID, arrivalTime, departureTime) VALUES ('200723', '502667', '10:23', '12:00');
+
+INSERT INTO stopsAt(stationID, trainID, arrivalTime, departureTime) VALUES ('200667', '502667', '13:33', '00:00');
+
+INSERT INTO stopsAt(stationID, trainID, arrivalTime, departureTime) VALUES ('200327', '502703', '00:00', '10:00');
+
+INSERT INTO stopsAt(stationID, trainID, arrivalTime, departureTime) VALUES ('200723', '502703', '18:16', '00:00');
+
+
+## CARGO ##
+INSERT INTO cargo(cargoID, type, destination, trainID) VALUES ('606502', 'natural gas', '200667', '502667');
+
+INSERT INTO cargo(cargoID, type, destination, trainID) VALUES ('606503', 'coal', '200667', '502667');
+
+INSERT INTO cargo(cargoID, type, destination, trainID) VALUES ('606121', 'coal', '200723', '0');
+
+INSERT INTO cargo(cargoID, type, destination, trainID) VALUES ('606998', 'Passengers', '200723', '502703');
+
+
+## ROUTES-THROUGH ##
+INSERT INTO routesThrough(stationID, cargoID, arrivalTime, departureTime) VALUES ('200765', '606502', '00:00', '08:30');
+
+INSERT INTO routesThrough(stationID, cargoID, arrivalTime, departureTime) VALUES ('200723', '606502', '10:23', '12:00');
+
+INSERT INTO routesThrough(stationID, cargoID, arrivalTime, departureTime) VALUES ('200667', '606502', '13:33', '00:00');
+
+INSERT INTO routesThrough(stationID, cargoID, arrivalTime, departureTime) VALUES ('200765', '606503', '00:00', '08:30');
+
+INSERT INTO routesThrough(stationID, cargoID, arrivalTime, departureTime) VALUES ('200723', '606503', '10:23', '12:00');
+
+INSERT INTO routesThrough(stationID, cargoID, arrivalTime, departureTime) VALUES ('200667', '606503', '13:33', '00:00');
+
+INSERT INTO routesThrough(stationID, cargoID, arrivalTime, departureTime) VALUES ('200723', '606121', '10:23', '00:00');
+
+INSERT INTO routesThrough(stationID, cargoID, arrivalTime, departureTime) VALUES ('200327', '606998', '00:00', '10:00');
+
+INSERT INTO routesThrough(stationID, cargoID, arrivalTime, departureTime) VALUES ('200723', '606998', '18:16', '00:00');

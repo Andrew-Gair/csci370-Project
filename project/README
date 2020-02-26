@@ -1,0 +1,14 @@
+to compile the program, type 'make'.
+
+to run the program, type './project'.
+
+The source code is contained in main.cpp.
+database_mkr.txt has all the sql commands needed to replicate the database used for the project (also found in report).
+
+Before the program runs, the user will have to login to oracle with a valid username and password.
+After this login, the program will execute.
+
+
+the program will prompt the user for input as it runs. An invalid entry will result in an error message, and return
+the user to the selection-menu. Incorrect (but still valid) entries will run the query and return an empty table.
+To exit, follow the prompts provided until returned to the main menu, then type 'quit'.

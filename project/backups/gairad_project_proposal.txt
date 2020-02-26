@@ -1,0 +1,25 @@
+Andrew Gair (Gairad) Project Proposal: Snapshot Train Management Application
+
+Application Domain:
+The application itself is a Railway Management software, which if used in the real world
+would keep track of trains on the Railway in real-time. For the purposes of this project,
+this real-time aspect will be assumed only, and not implemented. Instead, the project
+will work with a snapshot, the status of the railway at a given time, say 13:02.
+
+The program will show a train's planned operations throughout a 24 hour period.
+  Included will also be a cargo tracking feature, see where a given cargo should be at the end of the day, and track where it has been earlier in the day.
+
+Every midnight the operations for all trains will be updated and new routes organized.
+  This means the application assumes all trains arrive at their final destination before midnight each night.
+  
+The current time is assumed to be 13:02.
+
+The functionality of the application will include:
+:)  -See all stops a given train makes throughout a day and at what times those stops are planned to occur at (trains may fall behind schedule).
+:)  -See where a selected train currently is at the current time (shown by time to next stop and which station the train is stopping at next).
+:)  -See all trains that stop at a given station during the entire day and at what times.
+:)  -See all trains that have carried, or are scheduled to carry a given piece of cargo throughout the day. (and also which train or station the cargo is currently on)
+      >This functionality allows the real-time tracking of cargo as well as tracking the route it should end up taking throughout the day.
+:(  -See all cargo that a given train holds at the current time.
+:(  -See who is staffing a station or train at the current time.
+  
